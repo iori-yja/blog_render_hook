@@ -1,4 +1,4 @@
--- #!/usr/bin/runghc
+module Main where
 import Control.Monad
 import Text.Pandoc
 import System.Directory
