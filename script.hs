@@ -17,7 +17,7 @@ traversedocs :: IO [(FilePath, String)]
 traversedocs = do
 	a <- getDirectoryContents "." >>= (filterM doesFileExist) . (filter $ isSuffixOf ".md")
 	b <- mapM readFile a
-	return $ zip (map (\a -> replaceExtension a "html") a) b
+	return $ zip (map (\a -> "web/html/" </> replaceExtension a "html") a) b
 
 docconvert :: String -> (FilePath, String) -> (FilePath, String)
 docconvert t (f, s) = (f, md2html t s)
